@@ -22,3 +22,17 @@ Xero provides three types of API integration: Private, Public and Partner. The X
 2. Next step is to [create an API Application](http://developer.xero.com/documentation/getting-started/api-application-setup/#title0)
 ⋅⋅* Create a Private Application
 ⋅⋅* Upload the public key
+
+### Publish the Xero Connector to Azure
+1. Browse to the [Azure portal](http://portal.azure.com)
+2. In the lower left corner, click the plus button
+3. In the "create" blade, click "Web & Mobile"
+4. Click API App in the next pane, set the name (Eg XeroConnector) and continue with your subscription settings
+5. Click "Create" to create the API App
+6. When the API has been created, view the details
+7. On the API APP blade, click the All settings -> Application settings if you want to change the access level
+8. On the API APP blade, click the API app host link, to open the host blade
+9. On the API HOST APP blade, click the All settings -> Custom domains and SSL
+10. Upload your 
+10. Add the following Application settings:
+⋅⋅* 
