@@ -36,3 +36,10 @@ Xero provides three types of API integration: Private, Public and Partner. The X
 10. Upload your private key (pfx), and copy the thumbprint
 11. Add the following Application settings:
 
+
+| Key                            | Value                                  |
+| ------------------------------ |:--------------------------------------:|
+| ConsumerKey                    | Your Xero Application Connsumer Key    |
+| ConsumerSecret                 | Your Xero Application Connsumer Secret |
+| CertificateThumbprint          | The thumbprint you copied in step 10   |
+| WEBSITE_LOAD_CERTIFICATES      | The thumbprint you copied in step 10   |
