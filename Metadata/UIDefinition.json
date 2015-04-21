@@ -1,0 +1,42 @@
+﻿{
+    "parameters": {
+        "XeroConnector": {
+            "xeroApiUri": {
+                "defaultValue": "https://api.xero.com",
+                "displayName": "Xero Api Uri",
+                "description": "URI to where the back-end Xero API is hosted",
+                "tooltip": "Xero Api Uri",
+                "constraints": {
+                    "required": "true"
+                }
+            },
+            "certificateThumbprint": {
+                "defaultValue": "",
+                "displayName": "Certificate thumbprint",
+                "description": "Thumbprint of the certificate to use for authentication (Private type)",
+                "tooltip": "Certificate thumbprint",
+                "constraints": {
+                    "required": "true"
+                }
+            },
+            "consumerKey": {
+                "defaultValue": "",
+                "displayName": "Consumer Key",
+                "description": "Consumer Key is used together with Consumer Secret and private key to authenticate the client.",
+                "tooltip": "Consumer Key",
+                "constraints": {
+                    "required": "true"
+                }
+            },
+            "consumerSecret": {
+                "defaultValue": "",
+                "displayName": "Consumer Secret",
+                "description": "Consumer Secret is used together with Consumer Key and private key to authenticate the client.",
+                "tooltip": "Consumer Secret",
+                "constraints": {
+                    "required": "true"
+                }
+            }
+        }
+    }
+}

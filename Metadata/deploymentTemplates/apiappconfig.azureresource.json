@@ -1,0 +1,42 @@
+﻿{
+  "$schema": "http://schemas.management.azure.com/schemas/2014-04-01-preview/deploymentTemplate.json#",
+  "contentVersion": "1.0.0.0",
+  "parameters": {
+    "$system": {
+      "type": "Object"
+    },
+    "xeroApiUri": {
+      "type": "string"
+    },
+    "certificateThumbprint": {
+      "type": "string"
+    },
+    "consumerKey": {
+      "type": "string"
+    },
+    "consumerSecret": {
+      "type": "string"
+    }
+  },
+  "resources": [
+    {
+      "apiVersion": "2014-11-01",
+      "type": "Microsoft.Web/sites",
+      "name": "[parameters('$system').siteName]",
+      "location": "[parameters('$system').location]",
+      "resources": [
+        {
+          "apiVersion": "2014-11-01",
+          "type": "config",
+          "name": "appsettings",
+          "properties": {
+            "XeroApiUri": "[parameters('xeroApiUri')]",
+            "CertificateThumbprint": "[parameters('certificateThumbprint')]",
+            "ConsumerKey": "[parameters('consumerKey')]",
+            "ConsumerSecret": "[parameters('consumerSecret')]",
+          }
+        }
+      ]
+    }
+  ]
+}
