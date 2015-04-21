@@ -1,5 +1,26 @@
 # XeroConnector
-The bLogical Xero connector is an Azure API app which lets you query, create and modify different entities such as Accounts, Transactions, Contacts, Invoices and Orders.
+The bLogical Xero connector is an Azure API app which lets you query, create and modify Xero entities such as:
+* Accounts - Find and Create
+* Attachments - Add, Get and List
+* Bank Transactions - Create, Find and Update
+* Bank Transfers - Create, Find and Update
+* Branding Themes - Find
+* Contacts - Create, Find and Update
+* Credit Notes - Create, Find and Update
+* Currencies - Find
+* Employees - Create, Find and Update
+* Expense Claims - Create, Find and Update
+* Invoices - Create, Find and Update
+* Items - Create, Find and Update
+* Journals - Find
+* Manual Journals - Create, Find and Update
+* Organisation - Find
+* Payments - Create and Find
+* Receipts - Create, Find and Update
+* Repeating Invoices - Find
+* Reports - Find
+* Tax Rates - Create, Find and Update
+* Users - Find
 
 [Click here for more information about Azure API apps](http://azure.microsoft.com/en-in/documentation/services/app-service/) 
 
