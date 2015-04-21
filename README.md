@@ -33,6 +33,6 @@ Xero provides three types of API integration: Private, Public and Partner. The X
 7. On the API APP blade, click the All settings -> Application settings if you want to change the access level
 8. On the API APP blade, click the API app host link, to open the host blade
 9. On the API HOST APP blade, click the All settings -> Custom domains and SSL
-10. Upload your 
-10. Add the following Application settings:
-⋅⋅* 
+10. Upload your private key (pfx), and copy the thumbprint
+11. Add the following Application settings:
+
