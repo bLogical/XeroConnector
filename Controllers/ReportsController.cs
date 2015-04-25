@@ -17,7 +17,7 @@ namespace XeroConnector.Controllers
             return TaxRates;
         }
         [HttpGet]
-        public Xero.Api.Core.Model.TaxRate Get(Guid id)
+        public Xero.Api.Core.Model.TaxRate GetById(Guid id)
         {
             var TaxRate = XeroApiHelper.XeroApi.TaxRates.Find(id);
             return TaxRate;

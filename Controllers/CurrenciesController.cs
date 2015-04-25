@@ -17,7 +17,7 @@ namespace XeroConnector.Controllers
             return Currencies;
         }
         [HttpGet]
-        public Xero.Api.Core.Model.Currency Get(string id)
+        public Xero.Api.Core.Model.Currency GetById(string id)
         {
             var Currency = XeroApiHelper.XeroApi.Currencies.Find(id);
             return Currency;

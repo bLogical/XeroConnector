@@ -17,7 +17,7 @@ namespace XeroConnector.Controllers
             return CreditNotes;
         }
         [HttpGet]
-        public Xero.Api.Core.Model.CreditNote Get(Guid id)
+        public Xero.Api.Core.Model.CreditNote GetById(Guid id)
         {
             var CreditNote = XeroApiHelper.XeroApi.CreditNotes.Find(id);
             return CreditNote;

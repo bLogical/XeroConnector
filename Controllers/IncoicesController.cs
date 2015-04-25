@@ -17,7 +17,7 @@ namespace XeroConnector.Controllers
             return Invoices;
         }
         [HttpGet]
-        public Xero.Api.Core.Model.Invoice Get(Guid id)
+        public Xero.Api.Core.Model.Invoice GetById(Guid id)
         {
             var Invoice = XeroApiHelper.XeroApi.Invoices.Find(id);
             return Invoice;

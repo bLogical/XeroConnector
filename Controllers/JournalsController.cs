@@ -17,7 +17,7 @@ namespace XeroConnector.Controllers
             return Journals;
         }
         [HttpGet]
-        public Xero.Api.Core.Model.Journal Get(Guid id)
+        public Xero.Api.Core.Model.Journal GetById(Guid id)
         {
             var Journal = XeroApiHelper.XeroApi.Journals.Find(id);
             return Journal;

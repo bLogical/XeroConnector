@@ -17,7 +17,7 @@ namespace XeroConnector.Controllers
             return ExpenseClaims;
         }
         [HttpGet]
-        public Xero.Api.Core.Model.ExpenseClaim Get(Guid id)
+        public Xero.Api.Core.Model.ExpenseClaim GetById(Guid id)
         {
             var ExpenseClaim = XeroApiHelper.XeroApi.ExpenseClaims.Find(id);
             return ExpenseClaim;

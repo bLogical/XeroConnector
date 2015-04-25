@@ -20,7 +20,7 @@ namespace XeroConnector.Controllers
             return contacts;
         }
         [HttpGet]
-        public Xero.Api.Core.Model.Contact Get(Guid id)
+        public Xero.Api.Core.Model.Contact GetById(Guid id)
         {
             var contact = XeroApiHelper.XeroApi.Contacts.Find(id);
             return contact;

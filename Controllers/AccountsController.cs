@@ -17,7 +17,7 @@ namespace XeroConnector.Controllers
             return accounts;
         }
         [HttpGet]
-        public Xero.Api.Core.Model.Account Get(Guid id)
+        public Xero.Api.Core.Model.Account GetById(Guid id)
         {
             var account = XeroApiHelper.XeroApi.Accounts.Find(id);
             return account;

@@ -17,7 +17,7 @@ namespace XeroConnector.Controllers
             return Payments;
         }
         [HttpGet]
-        public Xero.Api.Core.Model.Payment Get(Guid id)
+        public Xero.Api.Core.Model.Payment GetById(Guid id)
         {
             var Payment = XeroApiHelper.XeroApi.Payments.Find(id);
             return Payment;

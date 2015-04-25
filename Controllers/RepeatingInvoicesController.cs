@@ -17,7 +17,7 @@ namespace XeroConnector.Controllers
             return  RepeatingInvoices;
         }
         [HttpGet]
-        public Xero.Api.Core.Model.RepeatingInvoice Get(Guid id)
+        public Xero.Api.Core.Model.RepeatingInvoice GetById(Guid id)
         {
             var  RepeatingInvoice = XeroApiHelper.XeroApi.RepeatingInvoices.Find(id);
             return  RepeatingInvoice;

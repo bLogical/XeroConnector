@@ -17,7 +17,7 @@ namespace XeroConnector.Controllers
             return Overpayments;
         }
         [HttpGet]
-        public Xero.Api.Core.Model.Overpayment Get(Guid id)
+        public Xero.Api.Core.Model.Overpayment GetById(Guid id)
         {
             var Overpayment = XeroApiHelper.XeroApi.Overpayments.Find(id);
             return Overpayment;

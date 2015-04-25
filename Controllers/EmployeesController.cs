@@ -17,7 +17,7 @@ namespace XeroConnector.Controllers
             return Employees;
         }
         [HttpGet]
-        public Xero.Api.Core.Model.Employee Get(Guid id)
+        public Xero.Api.Core.Model.Employee GetById(Guid id)
         {
             var Employee = XeroApiHelper.XeroApi.Employees.Find(id);
             return Employee;

@@ -17,7 +17,7 @@ namespace XeroConnector.Controllers
             return Users;
         }
         [HttpGet]
-        public Xero.Api.Core.Model.User Get(Guid id)
+        public Xero.Api.Core.Model.User GetById(Guid id)
         {
             var User = XeroApiHelper.XeroApi.Users.Find(id);
             return User;

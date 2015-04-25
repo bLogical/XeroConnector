@@ -17,7 +17,7 @@ namespace XeroConnector.Controllers
             return Prepayments;
         }
         [HttpGet]
-        public Xero.Api.Core.Model.Prepayment Get(Guid id)
+        public Xero.Api.Core.Model.Prepayment GetById(Guid id)
         {
             var Prepayment = XeroApiHelper.XeroApi.Prepayments.Find(id);
             return Prepayment;

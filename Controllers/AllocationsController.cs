@@ -17,7 +17,7 @@ namespace XeroConnector.Controllers
             return bankTransactions;
         }
         [HttpGet]
-        public Xero.Api.Core.Model.BankTransaction Get(Guid id)
+        public Xero.Api.Core.Model.BankTransaction GetById(Guid id)
         {
             var bankTransaction = XeroApiHelper.XeroApi.BankTransactions.Find(id);
             return bankTransaction;

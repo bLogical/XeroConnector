@@ -17,7 +17,7 @@ namespace XeroConnector.Controllers
             return Receipts;
         }
         [HttpGet]
-        public Xero.Api.Core.Model.Receipt Get(Guid id)
+        public Xero.Api.Core.Model.Receipt GetById(Guid id)
         {
             var Receipt = XeroApiHelper.XeroApi.Receipts.Find(id);
             return Receipt;

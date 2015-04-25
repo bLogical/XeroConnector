@@ -17,7 +17,7 @@ namespace XeroConnector.Controllers
             return Items;
         }
         [HttpGet]
-        public Xero.Api.Core.Model.Item Get(Guid id)
+        public Xero.Api.Core.Model.Item GetById(Guid id)
         {
             var Item = XeroApiHelper.XeroApi.Items.Find(id);
             return Item;

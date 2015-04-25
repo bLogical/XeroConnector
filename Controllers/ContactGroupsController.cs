@@ -17,7 +17,7 @@ namespace XeroConnector.Controllers
             return ContactGroups;
         }
         [HttpGet]
-        public Xero.Api.Core.Model.ContactGroup Get(Guid id)
+        public Xero.Api.Core.Model.ContactGroup GetById(Guid id)
         {
             var ContactGroup = XeroApiHelper.XeroApi.ContactGroups.Find(id);
             return ContactGroup;
