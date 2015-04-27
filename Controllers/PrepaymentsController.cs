@@ -5,22 +5,23 @@ using System.Net;
 using System.Net.Http;
 using System.Web.Http;
 using XeroConnector.Helpers;
+using XeroConnector.Model;
 
 namespace XeroConnector.Controllers
 {
-    public class PrePrepaymentsController : ApiController
+    public class PrepaymentsController : ApiController
     {
         [HttpGet]
-        public IEnumerable<Xero.Api.Core.Model.Prepayment> Get()
+        public IEnumerable<Prepayment> Get()
         {
             var Prepayments = XeroApiHelper.XeroApi.Prepayments.Find();
-            return Prepayments;
+            return XeroApiHelper.Convert<IEnumerable<Prepayment>>(Prepayments);
         }
         [HttpGet]
-        public Xero.Api.Core.Model.Prepayment GetById(Guid id)
+        public Prepayment GetById(Guid id)
         {
             var Prepayment = XeroApiHelper.XeroApi.Prepayments.Find(id);
-            return Prepayment;
+            return XeroApiHelper.Convert<Prepayment>(Prepayment);
         }
     }
 }

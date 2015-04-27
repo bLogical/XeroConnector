@@ -5,32 +5,35 @@ using System.Net;
 using System.Net.Http;
 using System.Web.Http;
 using XeroConnector.Helpers;
+using XeroConnector.Model;
 
 namespace XeroConnector.Controllers
 {
     public class ReceiptsController : ApiController
     {
         [HttpGet]
-        public IEnumerable<Xero.Api.Core.Model.Receipt> Get()
+        public IEnumerable<Receipt> Get()
         {
             var Receipts = XeroApiHelper.XeroApi.Receipts.Find();
-            return Receipts;
+            return XeroApiHelper.Convert<IEnumerable<Receipt>>(Receipts);
         }
         [HttpGet]
-        public Xero.Api.Core.Model.Receipt GetById(Guid id)
+        public Receipt GetById(Guid id)
         {
             var Receipt = XeroApiHelper.XeroApi.Receipts.Find(id);
-            return Receipt;
+            return XeroApiHelper.Convert<Receipt>(Receipt);
         }
         [HttpPost]
-        public Xero.Api.Core.Model.Receipt Create(Xero.Api.Core.Model.Receipt Receipt)
+        public void Create(Receipt Receipt)
         {
-            return XeroApiHelper.XeroApi.Receipts.Create(Receipt);
+            var xeroObj = XeroApiHelper.Convert<Xero.Api.Core.Model.Receipt>(Receipt);
+            XeroApiHelper.XeroApi.Receipts.Create(xeroObj);
         }
         [HttpPut]
-        public Xero.Api.Core.Model.Receipt Update(Xero.Api.Core.Model.Receipt Receipt)
+        public void Update(Receipt Receipt)
         {
-            return XeroApiHelper.XeroApi.Receipts.Update(Receipt);
+            var xeroObj = XeroApiHelper.Convert<Xero.Api.Core.Model.Receipt>(Receipt);
+            XeroApiHelper.XeroApi.Receipts.Update(xeroObj);
         }
     }
 }

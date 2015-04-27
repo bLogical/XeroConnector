@@ -5,32 +5,35 @@ using System.Net;
 using System.Net.Http;
 using System.Web.Http;
 using XeroConnector.Helpers;
+using XeroConnector.Model;
 
 namespace XeroConnector.Controllers
 {
     public class CreditNotesController : ApiController
     {
         [HttpGet]
-        public IEnumerable<Xero.Api.Core.Model.CreditNote> Get()
+        public IEnumerable<CreditNote> Get()
         {
             var CreditNotes = XeroApiHelper.XeroApi.CreditNotes.Find();
-            return CreditNotes;
+            return XeroApiHelper.Convert<IEnumerable<CreditNote>>(CreditNotes);
         }
         [HttpGet]
-        public Xero.Api.Core.Model.CreditNote GetById(Guid id)
+        public CreditNote GetById(Guid id)
         {
             var CreditNote = XeroApiHelper.XeroApi.CreditNotes.Find(id);
-            return CreditNote;
+            return XeroApiHelper.Convert<CreditNote>(CreditNote);
         }
         [HttpPost]
-        public Xero.Api.Core.Model.CreditNote Create(Xero.Api.Core.Model.CreditNote CreditNote)
+        public void Create(CreditNote CreditNote)
         {
-            return XeroApiHelper.XeroApi.CreditNotes.Create(CreditNote);
+            var xeroObj = XeroApiHelper.Convert<Xero.Api.Core.Model.CreditNote>(CreditNote);
+            XeroApiHelper.XeroApi.CreditNotes.Create(xeroObj);
         }
         [HttpPut]
-        public Xero.Api.Core.Model.CreditNote Update(Xero.Api.Core.Model.CreditNote CreditNote)
+        public void Update(CreditNote CreditNote)
         {
-            return XeroApiHelper.XeroApi.CreditNotes.Update(CreditNote);
+            var xeroObj = XeroApiHelper.Convert<Xero.Api.Core.Model.CreditNote>(CreditNote);
+            XeroApiHelper.XeroApi.CreditNotes.Update(xeroObj);
         }
     }
 }

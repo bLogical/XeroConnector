@@ -5,32 +5,35 @@ using System.Net;
 using System.Net.Http;
 using System.Web.Http;
 using XeroConnector.Helpers;
+using XeroConnector.Model;
 
 namespace XeroConnector.Controllers
 {
     public class ItemsController : ApiController
     {
         [HttpGet]
-        public IEnumerable<Xero.Api.Core.Model.Item> Get()
+        public IEnumerable<Item> Get()
         {
             var Items = XeroApiHelper.XeroApi.Items.Find();
-            return Items;
+            return XeroApiHelper.Convert<IEnumerable<Item>>(Items);
         }
         [HttpGet]
-        public Xero.Api.Core.Model.Item GetById(Guid id)
+        public Item GetById(Guid id)
         {
             var Item = XeroApiHelper.XeroApi.Items.Find(id);
-            return Item;
+            return XeroApiHelper.Convert<Item>(Item);
         }
         [HttpPost]
-        public Xero.Api.Core.Model.Item Create(Xero.Api.Core.Model.Item Item)
+        public void Create(Item Item)
         {
-            return XeroApiHelper.XeroApi.Items.Create(Item);
+            var xeroObj = XeroApiHelper.Convert<Xero.Api.Core.Model.Item>(Item);
+            XeroApiHelper.XeroApi.Items.Create(xeroObj);
         }
         [HttpPut]
-        public Xero.Api.Core.Model.Item Update(Xero.Api.Core.Model.Item Item)
+        public void Update(Item Item)
         {
-            return XeroApiHelper.XeroApi.Items.Update(Item);
+            var xeroObj = XeroApiHelper.Convert<Xero.Api.Core.Model.Item>(Item);
+            XeroApiHelper.XeroApi.Items.Update(xeroObj);
         }
     }
 }

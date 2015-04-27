@@ -5,32 +5,35 @@ using System.Net;
 using System.Net.Http;
 using System.Web.Http;
 using XeroConnector.Helpers;
+using XeroConnector.Model;
 
 namespace XeroConnector.Controllers
 {
     public class EmployeesController : ApiController
     {
         [HttpGet]
-        public IEnumerable<Xero.Api.Core.Model.Employee> Get()
+        public IEnumerable<Employee> Get()
         {
             var Employees = XeroApiHelper.XeroApi.Employees.Find();
-            return Employees;
+            return XeroApiHelper.Convert<IEnumerable<Employee>>(Employees);
         }
         [HttpGet]
-        public Xero.Api.Core.Model.Employee GetById(Guid id)
+        public Employee GetById(Guid id)
         {
             var Employee = XeroApiHelper.XeroApi.Employees.Find(id);
-            return Employee;
+            return XeroApiHelper.Convert<Employee>(Employee);
         }
         [HttpPost]
-        public Xero.Api.Core.Model.Employee Create(Xero.Api.Core.Model.Employee Employee)
+        public void Create(Employee Employee)
         {
-            return XeroApiHelper.XeroApi.Employees.Create(Employee);
+            var xeroObj = XeroApiHelper.Convert<Xero.Api.Core.Model.Employee>(Employee);
+            XeroApiHelper.XeroApi.Employees.Create(xeroObj);
         }
         [HttpPut]
-        public Xero.Api.Core.Model.Employee Update(Xero.Api.Core.Model.Employee Employee)
+        public void Update(Employee Employee)
         {
-            return XeroApiHelper.XeroApi.Employees.Update(Employee);
+            var xeroObj = XeroApiHelper.Convert<Xero.Api.Core.Model.Employee>(Employee);
+            XeroApiHelper.XeroApi.Employees.Update(xeroObj);
         }
     }
 }

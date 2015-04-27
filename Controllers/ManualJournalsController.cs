@@ -5,32 +5,35 @@ using System.Net;
 using System.Net.Http;
 using System.Web.Http;
 using XeroConnector.Helpers;
+using XeroConnector.Model;
 
 namespace XeroConnector.Controllers
 {
     public class ManualJournalsController : ApiController
     {
         [HttpGet]
-        public IEnumerable<Xero.Api.Core.Model.ManualJournal> Get()
+        public IEnumerable<ManualJournal> Get()
         {
             var ManualJournals = XeroApiHelper.XeroApi.ManualJournals.Find();
-            return ManualJournals;
+            return XeroApiHelper.Convert<IEnumerable<ManualJournal>>(ManualJournals);
         }
         [HttpGet]
-        public Xero.Api.Core.Model.ManualJournal GetById(Guid id)
+        public ManualJournal GetById(Guid id)
         {
             var ManualJournal = XeroApiHelper.XeroApi.ManualJournals.Find(id);
-            return ManualJournal;
+            return XeroApiHelper.Convert<ManualJournal>(ManualJournal);
         }
         [HttpPost]
-        public Xero.Api.Core.Model.ManualJournal Create(Xero.Api.Core.Model.ManualJournal ManualJournal)
+        public void Create(ManualJournal ManualJournal)
         {
-            return XeroApiHelper.XeroApi.ManualJournals.Create(ManualJournal);
+            var xeroObj = XeroApiHelper.Convert<Xero.Api.Core.Model.ManualJournal>(ManualJournal);
+            XeroApiHelper.XeroApi.ManualJournals.Create(xeroObj);
         }
         [HttpPut]
-        public Xero.Api.Core.Model.ManualJournal Update(Xero.Api.Core.Model.ManualJournal ManualJournal)
+        public void Update(ManualJournal ManualJournal)
         {
-            return XeroApiHelper.XeroApi.ManualJournals.Update(ManualJournal);
+            var xeroObj = XeroApiHelper.Convert<Xero.Api.Core.Model.ManualJournal>(ManualJournal);
+            XeroApiHelper.XeroApi.ManualJournals.Update(xeroObj);
         }
     }
 }

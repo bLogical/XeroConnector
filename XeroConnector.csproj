@@ -60,6 +60,7 @@
       <SpecificVersion>False</SpecificVersion>
       <HintPath>packages\Microsoft.AspNet.WebApi.Client.5.2.3\lib\net45\System.Net.Http.Formatting.dll</HintPath>
     </Reference>
+    <Reference Include="System.Runtime.Serialization" />
     <Reference Include="System.Web.DynamicData" />
     <Reference Include="System.Web.Entity" />
     <Reference Include="System.Web.ApplicationServices" />
@@ -123,16 +124,15 @@
     <Compile Include="Controllers\AccountsController.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Controllers\AllocationsController.cs">
-      <SubType>Code</SubType>
-    </Compile>
     <Compile Include="Controllers\BankTransfersController.cs">
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="Controllers\ContactGroupsController.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Controllers\ContactsController.cs" />
+    <Compile Include="Controllers\ContactsController.cs">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Include="Controllers\CreditNotesController.cs">
       <SubType>Code</SubType>
     </Compile>
@@ -142,25 +142,205 @@
     <Compile Include="Controllers\EmployeesController.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Controllers\ExpenseClaimsController.cs" />
-    <Compile Include="Controllers\IncoicesController.cs" />
-    <Compile Include="Controllers\ItemsController.cs" />
-    <Compile Include="Controllers\JournalsController.cs" />
-    <Compile Include="Controllers\ManualJournalsController.cs" />
-    <Compile Include="Controllers\OrganisationController.cs" />
-    <Compile Include="Controllers\OverpaymentsController.cs" />
-    <Compile Include="Controllers\PaymentsController.cs" />
-    <Compile Include="Controllers\PrepaymentsController.cs" />
-    <Compile Include="Controllers\ReceiptsController.cs" />
-    <Compile Include="Controllers\RepeatingInvoicesController.cs" />
-    <Compile Include="Controllers\ReportsController.cs" />
-    <Compile Include="Controllers\UsersController.cs" />
+    <Compile Include="Controllers\ExpenseClaimsController.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Controllers\InvoicesController.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Controllers\ItemsController.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Controllers\JournalsController.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Controllers\ManualJournalsController.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Controllers\OrganisationController.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Controllers\OverpaymentsController.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Controllers\PaymentsController.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Controllers\PrepaymentsController.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Controllers\ReceiptsController.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Controllers\RepeatingInvoicesController.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Controllers\TaxRatesController.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Controllers\UsersController.cs">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Helpers\XeroApiHelper.cs" />
-    <Compile Include="Models\AddressView.cs" />
-    <Compile Include="Models\ContactView.cs" />
+    <Compile Include="Models\Account.cs">
+      <SubType>
+      </SubType>
+    </Compile>
+    <Compile Include="Models\Address.cs">
+      <SubType>
+      </SubType>
+    </Compile>
+    <Compile Include="Models\Allocation.cs" />
+    <Compile Include="Models\AllocationBase.cs" />
+    <Compile Include="Models\Attachment.cs" />
+    <Compile Include="Models\Balance.cs" />
+    <Compile Include="Models\Balances.cs" />
+    <Compile Include="Models\BankTransaction.cs">
+      <SubType>
+      </SubType>
+    </Compile>
+    <Compile Include="Models\BankTransfer.cs" />
+    <Compile Include="Models\BatchPayments.cs">
+      <SubType>
+      </SubType>
+    </Compile>
+    <Compile Include="Models\BrandingTheme.cs">
+      <SubType>
+      </SubType>
+    </Compile>
+    <Compile Include="Models\Contact.cs">
+      <SubType>
+      </SubType>
+    </Compile>
+    <Compile Include="Models\ContactGroup.cs">
+      <SubType>
+      </SubType>
+    </Compile>
+    <Compile Include="Models\ContactPerson.cs">
+      <SubType>
+      </SubType>
+    </Compile>
+    <Compile Include="Models\CoreData.cs">
+      <SubType>
+      </SubType>
+    </Compile>
+    <Compile Include="Models\CreditNote.cs" />
+    <Compile Include="Models\CreditNoteAllocation.cs" />
+    <Compile Include="Models\Currency.cs" />
+    <Compile Include="Models\Employee.cs" />
+    <Compile Include="Models\ExpenseClaim.cs" />
+    <Compile Include="Models\ExternalLink.cs" />
+    <Compile Include="Models\File.cs" />
+    <Compile Include="Models\FilePage.cs" />
+    <Compile Include="Models\FilesUser.cs" />
+    <Compile Include="Models\Folder.cs" />
+    <Compile Include="Models\Invoice.cs" />
+    <Compile Include="Models\Item.cs" />
+    <Compile Include="Models\ItemDetails.cs" />
+    <Compile Include="Models\ItemTracking.cs">
+      <SubType>
+      </SubType>
+    </Compile>
+    <Compile Include="Models\ItemTrackingCategory.cs">
+      <SubType>
+      </SubType>
+    </Compile>
+    <Compile Include="Models\Journal.cs" />
+    <Compile Include="Models\Line.cs" />
+    <Compile Include="Models\LineItem.cs">
+      <SubType>
+      </SubType>
+    </Compile>
+    <Compile Include="Models\ManualJournal.cs" />
+    <Compile Include="Models\Option.cs" />
+    <Compile Include="Models\Organisation.cs" />
+    <Compile Include="Models\Overpayment.cs" />
+    <Compile Include="Models\OverpaymentAllocation.cs" />
+    <Compile Include="Models\Payment.cs" />
+    <Compile Include="Models\PaymentTerms.cs">
+      <SubType>
+      </SubType>
+    </Compile>
+    <Compile Include="Models\Phone.cs">
+      <SubType>
+      </SubType>
+    </Compile>
+    <Compile Include="Models\Prepayment.cs" />
+    <Compile Include="Models\PrepaymentAllocation.cs" />
+    <Compile Include="Models\PurchaseDetails.cs" />
+    <Compile Include="Models\Receipt.cs" />
+    <Compile Include="Models\RepeatingInvoice.cs" />
+    <Compile Include="Models\Reports\Report.cs" />
+    <Compile Include="Models\Reports\ReportAttribute.cs" />
+    <Compile Include="Models\Reports\ReportCell.cs" />
+    <Compile Include="Models\Reports\ReportCellAttribute.cs" />
+    <Compile Include="Models\Reports\ReportField.cs" />
+    <Compile Include="Models\Reports\ReportRow.cs" />
+    <Compile Include="Models\SalesDetails.cs" />
+    <Compile Include="Models\Schedule.cs" />
+    <Compile Include="Models\Setup\AccountImportResult.cs" />
+    <Compile Include="Models\Setup\ContactImportResult.cs" />
+    <Compile Include="Models\Setup\ConversionBalance.cs" />
+    <Compile Include="Models\Setup\ConversionDate.cs" />
+    <Compile Include="Models\Setup\ConversionDetails.cs" />
+    <Compile Include="Models\Setup\ImportSummary.cs" />
+    <Compile Include="Models\Setup\OrganisationImportResult.cs" />
+    <Compile Include="Models\Setup\Setup.cs" />
+    <Compile Include="Models\Status\AccountStatus.cs" />
+    <Compile Include="Models\Status\BankTransactionStatus.cs" />
+    <Compile Include="Models\Status\ContactStatus.cs" />
+    <Compile Include="Models\Status\EmployeeStatus.cs" />
+    <Compile Include="Models\Status\ExpenseClaimStatus.cs" />
+    <Compile Include="Models\Status\InvoiceStatus.cs" />
+    <Compile Include="Models\Status\ManualJournalStatus.cs" />
+    <Compile Include="Models\Status\OrganisationStatus.cs" />
+    <Compile Include="Models\Status\OverpaymentStatus.cs" />
+    <Compile Include="Models\Status\PaymentStatus.cs" />
+    <Compile Include="Models\Status\PrepaymentStatus.cs" />
+    <Compile Include="Models\Status\ReceiptStatus.cs" />
+    <Compile Include="Models\Status\TaxRateStatus.cs" />
+    <Compile Include="Models\Status\TrackingCategoryStatus.cs" />
+    <Compile Include="Models\Status\TrackingOptionStatus.cs" />
+    <Compile Include="Models\Status\ValidationStatus.cs" />
+    <Compile Include="Models\TaxComponent.cs" />
+    <Compile Include="Models\TaxRate.cs" />
+    <Compile Include="Models\Terms.cs">
+      <SubType>
+      </SubType>
+    </Compile>
+    <Compile Include="Models\TrackingCategory.cs" />
+    <Compile Include="Models\Types\AccountClassType.cs" />
+    <Compile Include="Models\Types\AccountType.cs" />
+    <Compile Include="Models\Types\AddressType.cs" />
+    <Compile Include="Models\Types\AttachmentEndpointType.cs" />
+    <Compile Include="Models\Types\BankTransactionType.cs" />
+    <Compile Include="Models\Types\BudgetSummaryTimeframeType.cs" />
+    <Compile Include="Models\Types\CreditNoteType.cs" />
+    <Compile Include="Models\Types\ExternalLinkType.cs" />
+    <Compile Include="Models\Types\InvoiceType.cs" />
+    <Compile Include="Models\Types\LineAmountType.cs" />
+    <Compile Include="Models\Types\NamedReportType.cs" />
+    <Compile Include="Models\Types\OrganisationType.cs" />
+    <Compile Include="Models\Types\OrganisationVersion.cs" />
+    <Compile Include="Models\Types\OverpaymentType.cs" />
+    <Compile Include="Models\Types\PaymentTermType.cs" />
+    <Compile Include="Models\Types\PaymentType.cs" />
+    <Compile Include="Models\Types\PdfEndpointType.cs" />
+    <Compile Include="Models\Types\PhoneType.cs" />
+    <Compile Include="Models\Types\PrepaymentType.cs" />
+    <Compile Include="Models\Types\ReportRowType.cs" />
+    <Compile Include="Models\Types\ReportTaxType.cs" />
+    <Compile Include="Models\Types\SalesTaxBasisType.cs" />
+    <Compile Include="Models\Types\SalesTaxPeriodType.cs" />
+    <Compile Include="Models\Types\SystemAccountType.cs" />
+    <Compile Include="Models\Types\UnitType.cs" />
+    <Compile Include="Models\Types\UserRole.cs" />
+    <Compile Include="Models\User.cs" />
+    <Compile Include="Models\ValidationError.cs" />
+    <Compile Include="Models\Warning.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -173,7 +353,6 @@
       <DependentUpon>Web.config</DependentUpon>
     </None>
   </ItemGroup>
-  <ItemGroup />
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
     <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>

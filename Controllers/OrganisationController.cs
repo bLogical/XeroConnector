@@ -5,16 +5,17 @@ using System.Net;
 using System.Net.Http;
 using System.Web.Http;
 using XeroConnector.Helpers;
+using XeroConnector.Model.Setup;
 
 namespace XeroConnector.Controllers
 {
     public class OrganisationController : ApiController
     {
         [HttpGet]
-        public Xero.Api.Core.Model.Organisation Get()
+        public Organisation Get()
         {
             var Organisation = XeroApiHelper.XeroApi.Organisation;
-            return Organisation;
+            return XeroApiHelper.Convert<Organisation>(Organisation); ;
         }
        
     }

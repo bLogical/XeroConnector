@@ -5,32 +5,35 @@ using System.Net;
 using System.Net.Http;
 using System.Web.Http;
 using XeroConnector.Helpers;
+using XeroConnector.Model;
 
 namespace XeroConnector.Controllers
 {
     public class ExpenseClaimsController : ApiController
     {
         [HttpGet]
-        public IEnumerable<Xero.Api.Core.Model.ExpenseClaim> Get()
+        public IEnumerable<ExpenseClaim> Get()
         {
             var ExpenseClaims = XeroApiHelper.XeroApi.ExpenseClaims.Find();
-            return ExpenseClaims;
+            return XeroApiHelper.Convert<IEnumerable<ExpenseClaim>>(ExpenseClaims);
         }
         [HttpGet]
-        public Xero.Api.Core.Model.ExpenseClaim GetById(Guid id)
+        public ExpenseClaim GetById(Guid id)
         {
             var ExpenseClaim = XeroApiHelper.XeroApi.ExpenseClaims.Find(id);
-            return ExpenseClaim;
+            return XeroApiHelper.Convert<ExpenseClaim>(ExpenseClaim);
         }
         [HttpPost]
-        public Xero.Api.Core.Model.ExpenseClaim Create(Xero.Api.Core.Model.ExpenseClaim ExpenseClaim)
+        public void Create(ExpenseClaim ExpenseClaim)
         {
-            return XeroApiHelper.XeroApi.ExpenseClaims.Create(ExpenseClaim);
+            var xeroObj = XeroApiHelper.Convert<Xero.Api.Core.Model.ExpenseClaim>(ExpenseClaim);
+            XeroApiHelper.XeroApi.ExpenseClaims.Create(xeroObj);
         }
         [HttpPut]
-        public Xero.Api.Core.Model.ExpenseClaim Update(Xero.Api.Core.Model.ExpenseClaim ExpenseClaim)
+        public void Update(ExpenseClaim ExpenseClaim)
         {
-            return XeroApiHelper.XeroApi.ExpenseClaims.Update(ExpenseClaim);
+            var xeroObj = XeroApiHelper.Convert<Xero.Api.Core.Model.ExpenseClaim>(ExpenseClaim);
+            XeroApiHelper.XeroApi.ExpenseClaims.Update(xeroObj);
         }
     }
 }

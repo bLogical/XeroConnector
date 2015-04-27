@@ -1,39 +1,37 @@
-﻿using Newtonsoft.Json;
-using System;
+﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Net;
-using System.Net.Http;
 using System.Web.Http;
 using XeroConnector.Helpers;
+using XeroConnector.Model;
+
 
 namespace XeroConnector.Controllers
 {
     public class ContactsController : ApiController
     {
         [HttpGet]
-        public IEnumerable<Xero.Api.Core.Model.Contact> Get()
+        public IEnumerable<Contact> Get()
         {
-            var contacts = XeroApiHelper.XeroApi.Contacts.Find();
-            //var json = JsonConvert.SerializeObject(contacts);
-            //var contantsView = JsonConvert.DeserializeObject<List<XeroConnector.Models.ContactView>>(json);
-            return contacts;
+            var Contacts = XeroApiHelper.XeroApi.Contacts.Find();
+            return XeroApiHelper.Convert<IEnumerable<Contact>>(Contacts);
         }
         [HttpGet]
-        public Xero.Api.Core.Model.Contact GetById(Guid id)
+        public Contact GetById(Guid id)
         {
-            var contact = XeroApiHelper.XeroApi.Contacts.Find(id);
-            return contact;
+            var Contact = XeroApiHelper.XeroApi.Contacts.Find(id);
+            return XeroApiHelper.Convert<Contact>(Contact);
         }
         [HttpPost]
-        public Xero.Api.Core.Model.Contact Create(Xero.Api.Core.Model.Contact contact)
+        public void Create(Contact Contact)
         {
-            return XeroApiHelper.XeroApi.Contacts.Create(contact);
+            var xeroObj = XeroApiHelper.Convert<Xero.Api.Core.Model.Contact>(Contact);
+            XeroApiHelper.XeroApi.Contacts.Create(xeroObj);
         }
         [HttpPut]
-        public Xero.Api.Core.Model.Contact Update(Xero.Api.Core.Model.Contact contact)
+        public void Update(Contact Contact)
         {
-            return XeroApiHelper.XeroApi.Contacts.Update(contact);
+            var xeroObj = XeroApiHelper.Convert<Xero.Api.Core.Model.Contact>(Contact);
+            XeroApiHelper.XeroApi.Contacts.Update(xeroObj);
         }
 
     }

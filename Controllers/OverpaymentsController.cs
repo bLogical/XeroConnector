@@ -5,22 +5,23 @@ using System.Net;
 using System.Net.Http;
 using System.Web.Http;
 using XeroConnector.Helpers;
+using XeroConnector.Model;
 
 namespace XeroConnector.Controllers
 {
     public class OverpaymentsController : ApiController
     {
         [HttpGet]
-        public IEnumerable<Xero.Api.Core.Model.Overpayment> Get()
+        public IEnumerable<Overpayment> Get()
         {
             var Overpayments = XeroApiHelper.XeroApi.Overpayments.Find();
-            return Overpayments;
+            return XeroApiHelper.Convert<IEnumerable<Overpayment>>(Overpayments);
         }
         [HttpGet]
-        public Xero.Api.Core.Model.Overpayment GetById(Guid id)
+        public Overpayment GetById(Guid id)
         {
             var Overpayment = XeroApiHelper.XeroApi.Overpayments.Find(id);
-            return Overpayment;
+            return XeroApiHelper.Convert<Overpayment>(Overpayment);
         }
     }
 }

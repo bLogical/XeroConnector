@@ -5,22 +5,23 @@ using System.Net;
 using System.Net.Http;
 using System.Web.Http;
 using XeroConnector.Helpers;
+using XeroConnector.Model;
 
 namespace XeroConnector.Controllers
 {
     public class JournalsController : ApiController
     {
         [HttpGet]
-        public IEnumerable<Xero.Api.Core.Model.Journal> Get()
+        public IEnumerable<Journal> Get()
         {
             var Journals = XeroApiHelper.XeroApi.Journals.Find();
-            return Journals;
+            return XeroApiHelper.Convert<IEnumerable<Journal>>(Journals);
         }
         [HttpGet]
-        public Xero.Api.Core.Model.Journal GetById(Guid id)
+        public Journal GetById(Guid id)
         {
             var Journal = XeroApiHelper.XeroApi.Journals.Find(id);
-            return Journal;
+            return XeroApiHelper.Convert<Journal>(Journal);
         }
     }
 }

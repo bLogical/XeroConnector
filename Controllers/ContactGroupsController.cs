@@ -5,32 +5,35 @@ using System.Net;
 using System.Net.Http;
 using System.Web.Http;
 using XeroConnector.Helpers;
+using XeroConnector.Model;
 
 namespace XeroConnector.Controllers
 {
     public class ContactGroupsController : ApiController
     {
         [HttpGet]
-        public IEnumerable<Xero.Api.Core.Model.ContactGroup> Get()
+        public IEnumerable<ContactGroup> Get()
         {
             var ContactGroups = XeroApiHelper.XeroApi.ContactGroups.Find();
-            return ContactGroups;
+            return XeroApiHelper.Convert<IEnumerable<ContactGroup>>(ContactGroups);
         }
         [HttpGet]
-        public Xero.Api.Core.Model.ContactGroup GetById(Guid id)
+        public ContactGroup GetById(Guid id)
         {
             var ContactGroup = XeroApiHelper.XeroApi.ContactGroups.Find(id);
-            return ContactGroup;
+            return XeroApiHelper.Convert<ContactGroup>(ContactGroup);
         }
         [HttpPost]
-        public Xero.Api.Core.Model.ContactGroup Create(Xero.Api.Core.Model.ContactGroup ContactGroup)
+        public void Create(ContactGroup ContactGroup)
         {
-            return XeroApiHelper.XeroApi.ContactGroups.Create(ContactGroup);
+            var xeroObj = XeroApiHelper.Convert<Xero.Api.Core.Model.ContactGroup>(ContactGroup);
+            XeroApiHelper.XeroApi.ContactGroups.Create(xeroObj);
         }
         [HttpPut]
-        public Xero.Api.Core.Model.ContactGroup Update(Xero.Api.Core.Model.ContactGroup ContactGroup)
+        public void Update(ContactGroup ContactGroup)
         {
-            return XeroApiHelper.XeroApi.ContactGroups.Update(ContactGroup);
+            var xeroObj = XeroApiHelper.Convert<Xero.Api.Core.Model.ContactGroup>(ContactGroup);
+            XeroApiHelper.XeroApi.ContactGroups.Update(xeroObj);
         }
     }
 }

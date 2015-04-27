@@ -5,22 +5,23 @@ using System.Net;
 using System.Net.Http;
 using System.Web.Http;
 using XeroConnector.Helpers;
+using XeroConnector.Model;
 
 namespace XeroConnector.Controllers
 {
     public class UsersController : ApiController
     {
         [HttpGet]
-        public IEnumerable<Xero.Api.Core.Model.User> Get()
+        public IEnumerable<User> Get()
         {
             var Users = XeroApiHelper.XeroApi.Users.Find();
-            return Users;
+            return XeroApiHelper.Convert<IEnumerable<User>>(Users);
         }
         [HttpGet]
-        public Xero.Api.Core.Model.User GetById(Guid id)
+        public User GetById(Guid id)
         {
             var User = XeroApiHelper.XeroApi.Users.Find(id);
-            return User;
+            return XeroApiHelper.Convert<User>(User);
         }
     }
 }

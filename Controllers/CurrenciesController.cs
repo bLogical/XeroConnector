@@ -5,22 +5,23 @@ using System.Net;
 using System.Net.Http;
 using System.Web.Http;
 using XeroConnector.Helpers;
+using XeroConnector.Model;
 
 namespace XeroConnector.Controllers
 {
     public class CurrenciesController : ApiController
     {
         [HttpGet]
-        public IEnumerable<Xero.Api.Core.Model.Currency> Get()
+        public IEnumerable<Currency> Get()
         {
-            var Currencies = XeroApiHelper.XeroApi.Currencies.Find();
-            return Currencies;
+            var CreditNotes = XeroApiHelper.XeroApi.CreditNotes.Find();
+            return XeroApiHelper.Convert<IEnumerable<Currency>>(CreditNotes);
         }
         [HttpGet]
-        public Xero.Api.Core.Model.Currency GetById(string id)
+        public Currency GetById(Guid id)
         {
-            var Currency = XeroApiHelper.XeroApi.Currencies.Find(id);
-            return Currency;
+            var CreditNote = XeroApiHelper.XeroApi.CreditNotes.Find(id);
+            return XeroApiHelper.Convert<Currency>(CreditNote);
         }
     }
 }

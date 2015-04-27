@@ -1,36 +1,40 @@
-﻿using System;
+﻿using Newtonsoft.Json;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Net;
 using System.Net.Http;
 using System.Web.Http;
 using XeroConnector.Helpers;
+using XeroConnector.Model;
 
 namespace XeroConnector.Controllers
 {
     public class BankTransfersController : ApiController
     {
         [HttpGet]
-        public IEnumerable<Xero.Api.Core.Model.BankTransaction> Get()
+        public IEnumerable<BankTransaction> Get()
         {
             var bankTransactions = XeroApiHelper.XeroApi.BankTransactions.Find();
-            return bankTransactions;
+            return XeroApiHelper.Convert<IEnumerable<BankTransaction>>(bankTransactions);
         }
         [HttpGet]
-        public Xero.Api.Core.Model.BankTransaction GetById(Guid id)
+        public BankTransaction GetById(Guid id)
         {
             var bankTransaction = XeroApiHelper.XeroApi.BankTransactions.Find(id);
-            return bankTransaction;
+            return XeroApiHelper.Convert<BankTransaction>(bankTransaction);
         }
         [HttpPost]
-        public Xero.Api.Core.Model.BankTransaction Create(Xero.Api.Core.Model.BankTransaction bankTransaction)
+        public void Create(BankTransaction bankTransaction)
         {
-            return XeroApiHelper.XeroApi.BankTransactions.Create(bankTransaction);
+            var xeroBt = XeroApiHelper.Convert<Xero.Api.Core.Model.BankTransaction>(bankTransaction);
+            XeroApiHelper.XeroApi.BankTransactions.Create(xeroBt);
         }
         [HttpPut]
-        public Xero.Api.Core.Model.BankTransaction Update(Xero.Api.Core.Model.BankTransaction bankTransaction)
+        public void Update(BankTransaction bankTransaction)
         {
-            return XeroApiHelper.XeroApi.BankTransactions.Update(bankTransaction);
+            var xeroBt = XeroApiHelper.Convert<Xero.Api.Core.Model.BankTransaction>(bankTransaction);
+            XeroApiHelper.XeroApi.BankTransactions.Update(xeroBt);
         }
     }
 }

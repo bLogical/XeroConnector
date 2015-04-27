@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Newtonsoft.Json;
+using System;
 using System.Collections.Generic;
 using System.Configuration;
 using System.Linq;
@@ -56,6 +57,10 @@ namespace XeroConnector.Helpers
             // Get the first cert with the thumbprint
             certStore.Close();
             return certCollection[0];
+        }
+        public static T Convert<T>(object obj) {
+
+            return JsonConvert.DeserializeObject<T>(JsonConvert.SerializeObject(obj));
         }
     }
 }

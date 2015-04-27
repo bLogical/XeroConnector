@@ -5,27 +5,30 @@ using System.Net;
 using System.Net.Http;
 using System.Web.Http;
 using XeroConnector.Helpers;
+using XeroConnector.Model;
 
 namespace XeroConnector.Controllers
 {
     public class AccountsController : ApiController
     {
         [HttpGet]
-        public IEnumerable<Xero.Api.Core.Model.Account> Get()
+        public IEnumerable<Account> Get()
         {
             var accounts = XeroApiHelper.XeroApi.Accounts.Find();
-            return accounts;
+            return XeroApiHelper.Convert<IEnumerable<Account>>(accounts);
         }
         [HttpGet]
-        public Xero.Api.Core.Model.Account GetById(Guid id)
+        public Account GetById(Guid id)
         {
             var account = XeroApiHelper.XeroApi.Accounts.Find(id);
-            return account;
+            return XeroApiHelper.Convert<Account>(account);
         }
         [HttpPost]
-        public Xero.Api.Core.Model.Account Create(Xero.Api.Core.Model.Account contact)
+        public void Create(Account account)
         {
-            return XeroApiHelper.XeroApi.Accounts.Create(contact);
+            var xeroAccount = XeroApiHelper.Convert<Xero.Api.Core.Model.Account>(account);
+
+            XeroApiHelper.XeroApi.Accounts.Create(xeroAccount);
         }
     }
 }
