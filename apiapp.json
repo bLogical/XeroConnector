@@ -3,9 +3,10 @@
     "id": "XeroConnector",
     "namespace": "bLogical.se",
     "gateway": "2015-01-14",
-    "version": "1.0.0",
+    "version": "0.9.0",
     "title": "Xero Connector",
-    "description": "Xero connector lets you query, create and modifydifferent entities such as Accounts, Transactions, Contacts, Invoices and Orders. .<h3>Basic Actions</h3><li><p>Create Entity</p></li><li><p>Update Entity</p></li><li><p>Get Entity</p></li><li><p>Delete Entity</p></li><li><p>Execute Query</p></li>",
+    "summary": "Xero API Connector lets you query, create and modify entities in the Xero caaounting system",
+    "description": "Xero API Connector lets you query, create and modify different entities such as Accounts, Transactions, Contacts, Invoices and Orders. .<h3>Basic Actions</h3><li><p>Create Entity</p></li><li><p>Update Entity</p></li><li><p>Get Entity</p></li><li><p>Delete Entity</p></li><li><p>Execute Query</p></li>",
     "author": "Mikael Hakansson",
     "endpoints": {
         "apiDefinition": "/swagger/docs/v1",
@@ -17,5 +18,4 @@
 	"links": [],
 	"copyright": "Copyright 2015 bLogical",
     "brandColor": "#009cdb"
-
 }

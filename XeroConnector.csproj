@@ -105,11 +105,11 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Global.asax" />
-    <Content Include="Metadata\Icons\hero-icon.png" />
-    <Content Include="Metadata\Icons\large-icon.png" />
-    <Content Include="Metadata\Icons\medium-icon.png" />
-    <Content Include="Metadata\Icons\small-icon.png" />
-    <Content Include="Metadata\Icons\wide-icon.png" />
+    <Content Include="Metadata\Icons\hero.png" />
+    <Content Include="Metadata\Icons\large.png" />
+    <Content Include="Metadata\Icons\medium.png" />
+    <Content Include="Metadata\Icons\small.png" />
+    <Content Include="Metadata\Icons\wide.png" />
     <Content Include="Web.config">
       <SubType>Designer</SubType>
     </Content>

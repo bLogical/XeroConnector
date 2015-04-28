@@ -15,7 +15,7 @@
       "type": "string"
     },
     "consumerSecret": {
-      "type": "string"
+      "type": "securestring"
     }
   },
   "resources": [
