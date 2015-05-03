@@ -16,6 +16,9 @@
     },
     "consumerSecret": {
       "type": "securestring"
+    },
+    "WEBSITE_LOAD_CERTIFICATES": {
+      "type": "string"
     }
   },
   "resources": [
@@ -34,6 +37,7 @@
             "CertificateThumbprint": "[parameters('certificateThumbprint')]",
             "ConsumerKey": "[parameters('consumerKey')]",
             "ConsumerSecret": "[parameters('consumerSecret')]",
+            "WEBSITE_LOAD_CERTIFICATES": "[parameters('WEBSITE_LOAD_CERTIFICATES')]"
           }
         }
       ]

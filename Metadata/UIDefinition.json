@@ -16,7 +16,7 @@
                 "description": "Thumbprint of the certificate to use for authentication (Private type)",
                 "tooltip": "Certificate thumbprint",
                 "constraints": {
-                    "required": "true"
+                    "required": "false"
                 }
             },
             "consumerKey": {
@@ -36,7 +36,17 @@
                 "constraints": {
                     "required": "true"
                 }
+            },
+            "consumerSecret": {
+                "defaultValue": "",
+                "displayName": "WEBSITE_LOAD_CERTIFICATES",
+                "description": "Adding an app setting named WEBSITE_LOAD_CERTIFICATES with its value set to the thumbprint of the certificate will make it accessible to the API app.",
+                "tooltip": "WEBSITE_LOAD_CERTIFICATES",
+                "constraints": {
+                    "required": "false"
+                }
             }
+
         }
     }
 }

@@ -3,7 +3,7 @@
     "id": "XeroConnector",
     "namespace": "bLogical.se",
     "gateway": "2015-01-14",
-    "version": "0.9.0",
+    "version": "0.9.3",
     "title": "Xero Connector",
     "summary": "Xero API Connector lets you query, create and modify entities in the Xero accounting system",
     "description": "Xero API Connector lets you query, create and modify different entities such as Accounts, Transactions, Contacts, Invoices and Orders. .<h3>Basic Actions</h3><li><p>Create Entity</p></li><li><p>Update Entity</p></li><li><p>Get Entity</p></li><li><p>Delete Entity</p></li><li><p>Execute Query</p></li>",
