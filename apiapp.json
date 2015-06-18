@@ -10,7 +10,7 @@
     "author": "Mikael Hakansson",
     "endpoints": {
         "apiDefinition": "/swagger/docs/v1",
-        "status": null
+        "status": "/swagger/docs/v1"
     },
     "categories": [ "enterprise" ],
     "authentication": [],
